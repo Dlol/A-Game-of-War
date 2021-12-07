@@ -77,6 +77,7 @@ function playRound() {
 		return;
 	}
 	score.tie++;
+	document.getElementById("outcome").innerText = "You tied!";
 	displayScore();
 	console.log(score);
 }
@@ -98,6 +99,23 @@ function restart() {
 		displayScore();
 		document.getElementById("pCard").src = "Deck of Cards Images/back.jpg";
 		document.getElementById("cCard").src = "Deck of Cards Images/back.jpg";
-		document.getElementById("outcome").innerText = "restarted";
+		document.getElementById("outcome").innerText = "Restarted";
 	}
+}
+
+function pacifist() {
+	let card = cards[getRandInt(0, 51)];
+	score.tie++;
+	document.getElementById("pCard").src = card.img;
+	document.getElementById("cCard").src = card.img;
+	document.getElementById("outcome").innerText = "You tied!";
+	displayScore();
+}
+
+function showHelp(open = true) {
+	if (open) {
+		document.querySelector(".helpPop").classList.remove("hidden");
+		return;
+	}
+	document.querySelector(".helpPop").classList.add("hidden");
 }

@@ -10,21 +10,32 @@
 		<script src="script.js" defer></script>
 	</head>
 	<body>
+		<div class="helpPop hidden" onclick="showHelp(false)">
+			<div class="helpBox">
+				<h1>Instructions</h1>
+				<p>You just hit <code>Play Round</code> to play a round!</p>
+				<p>To restart, hit <code>Restart</code></p>
+				<p>To force a tie, hit <code>Pacifist</code></p>
+				<p>(click anywhere to dismiss)</p>
+			</div>
+		</div>
 		<div class="container">
 			<div class="buttons">
 				<button onclick="playRound()">Play round</button>
 				<button onclick="restart()">Restart</button>
+				<button onclick="pacifist()">Pacifist</button>
+				<button onclick="showHelp()">Help</button>
 			</div>
 			<div class="cardContainer">
 				<img
 					src="Deck of Cards Images/back.jpg"
-					alt=""
+					alt="Art by Isha and some other person idk"
 					id="pCard"
 					class="card"
 				/>
 				<img
 					src="Deck of Cards Images/back.jpg"
-					alt=""
+					alt="Art by Isha and some other person idk"
 					id="cCard"
 					class="card"
 				/>

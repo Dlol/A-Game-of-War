@@ -49,3 +49,27 @@
 .stat h1 {
 	font-size: 1.3rem;
 }
+
+.helpPop {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	background-color: #000000aa;
+	z-index: 10;
+}
+
+.helpBox {
+	background-color: var(--bg-dark);
+	padding: 16px;
+	border-radius: 8px;
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
