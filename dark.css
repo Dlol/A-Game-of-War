@@ -1,5 +1,5 @@
-:root{
-	--bg-main: hsl(0, 0%, 13%);
+:root {
+	--bg-main: hsl(0, 0%, 16%);
 	--bg-dark: hsl(0, 0%, 10%);
 	--bg-light: hsl(0, 0%, 20%);
 	--bg-lighter: hsl(0, 0%, 32%);
@@ -10,14 +10,16 @@
 	--text-color: white;
 }
 
-
-html{
+html {
 	background-color: var(--bg-main);
 	color: var(--text-color);
 	font-family: Arial, Helvetica, sans-serif;
 	line-height: 1.4rem;
 }
-input, textarea, select, button{
+input,
+textarea,
+select,
+button {
 	background-color: var(--bg-light);
 	color: var(--text-color);
 	border: 1px solid var(--highlight-main);
@@ -27,36 +29,48 @@ input, textarea, select, button{
 	transition: background 0.5s, border 0.5s, outline 0.5s;
 }
 
-input:hover, textarea:hover, select:hover, button:hover, button:focus-within{
+input:hover,
+textarea:hover,
+select:hover,
+button:hover,
+button:focus-within {
 	background-color: var(--bg-lighter);
-
 }
-input:focus-within, textarea:focus-within, select:focus-within, button:active{
+input:focus-within,
+textarea:focus-within,
+select:focus-within,
+button:active {
 	transition: none;
 	background-color: var(--bg-main);
 	border: 1px solid var(--accent-main);
 	outline: 1px solid var(--accent-main);
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	text-align: center;
 	margin: 0.5em 0;
 	margin-bottom: 0.5em;
 }
 
-tr{
+tr {
 	text-align: center;
 }
-td, th{
+td,
+th {
 	padding: 2px;
 }
-tr:nth-child(even){
+tr:nth-child(even) {
 	background-color: var(--bg-light);
 }
-tr:nth-child(odd){
+tr:nth-child(odd) {
 	background-color: var(--bg-main);
 }
-table{
+table {
 	width: 100%;
 	background-color: var(--bg-lighter);
 }

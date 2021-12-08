@@ -8,6 +8,7 @@ function getRandInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Keeps score in an object
 let score = {
 	player: 0,
 	computer: 0,
@@ -18,17 +19,24 @@ let score = {
 let cardDef = {
 	// the index of the element (useful for retrieving the number)
 	indx: 0,
-	// the number for the card itself (eg 2, 3, ...queen, king etc)
-	cardNum: 2,
+	// the rank for the card itself (eg 2, 3, ...queen, king etc)
+	cardRank: 2,
 	// the type of the card (hearts, spades, whatever)
 	cardType: "Spades",
 	// the path to the image
 	img: "path/to/image.png",
 };
 
-// ya
+// cards
 let cards = [];
 
+/**
+ * Fills the `cards` array with 52 cards with their
+ * - images
+ * - card types
+ * - index
+ * - card rank (2-ace)
+ */
 function createCards() {
 	// the amount of cards to generate
 	let cardsToGen = 52;
@@ -36,21 +44,27 @@ function createCards() {
 	let amtOfCards = 13;
 	// the card types
 	let cardTypes = ["Spades", "Hearts", "Diamonds", "Clubs"];
+	// Loops through and generates the cards using the example from cardDef
 	for (let index = 0; index < cardsToGen; index++) {
 		let outCard = {};
 
 		outCard.indx = index;
-		outCard.cardNum = (index % amtOfCards) + 2;
+		outCard.cardRank = (index % amtOfCards) + 2;
 		outCard.cardType = cardTypes[Math.floor(index / amtOfCards)];
 		outCard.img = `Deck of Cards Images/${index}.jpg`;
 
 		cards.push(outCard);
 	}
+	// fancy formatting
 	console.table(cards);
 }
 
 createCards();
 
+/**
+ *
+ *
+ */
 function playRound() {
 	let playerCard = cards[getRandInt(0, 51)];
 	let computerCard = cards[getRandInt(0, 51)];
@@ -78,6 +92,7 @@ function playRound() {
 	}
 	score.tie++;
 	document.getElementById("outcome").innerText = "You tied!";
+	alert("You tied!");
 	displayScore();
 	console.log(score);
 }
@@ -108,6 +123,7 @@ function pacifist() {
 	score.tie++;
 	document.getElementById("pCard").src = card.img;
 	document.getElementById("cCard").src = card.img;
+	alert("You tied!");
 	document.getElementById("outcome").innerText = "You tied!";
 	displayScore();
 }
