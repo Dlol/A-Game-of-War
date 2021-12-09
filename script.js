@@ -13,6 +13,14 @@ let score = {
 	player: 0,
 	computer: 0,
 	tie: 0,
+	total: 0,
+};
+
+let typeCounter = {
+	Spades: 0,
+	Hearts: 0,
+	Diamonds: 0,
+	Clubs: 0,
 };
 
 // THIS IS AN EXAMPLE CARD
@@ -76,14 +84,18 @@ function playRound() {
 	document.getElementById("pCard").src = playerCard.img;
 	document.getElementById("cCard").src = computerCard.img;
 
-	if (playerCard.cardNum > computerCard.cardNum) {
+	typeCounter[playerCard.cardType]++;
+	typeCounter[computerCard.cardType]++;
+	score.total++;
+
+	if (playerCard.cardRank > computerCard.cardRank) {
 		score.player++;
 		document.getElementById("outcome").innerText = "You won!";
 		displayScore();
 		console.log(score);
 		return;
 	}
-	if (playerCard.cardNum < computerCard.cardNum) {
+	if (playerCard.cardRank < computerCard.cardRank) {
 		score.computer++;
 		document.getElementById("outcome").innerText = "You lost";
 		displayScore();
@@ -102,6 +114,7 @@ function displayScore() {
 	document.getElementById("computerStat").children[1].innerText =
 		score.computer;
 	document.getElementById("tieStat").children[1].innerText = score.tie;
+	document.getElementById("totalStat").children[1].innerText = score.total;
 }
 
 function restart() {
@@ -110,6 +123,7 @@ function restart() {
 			player: 0,
 			computer: 0,
 			tie: 0,
+			total: 0,
 		};
 		displayScore();
 		document.getElementById("pCard").src = "Deck of Cards Images/back.jpg";
@@ -120,7 +134,9 @@ function restart() {
 
 function pacifist() {
 	let card = cards[getRandInt(0, 51)];
+	score.total++;
 	score.tie++;
+	typeCounter[card.cardType]++;
 	document.getElementById("pCard").src = card.img;
 	document.getElementById("cCard").src = card.img;
 	alert("You tied!");
@@ -134,4 +150,20 @@ function showHelp(open = true) {
 		return;
 	}
 	document.querySelector(".helpPop").classList.add("hidden");
+}
+
+function coolStats() {
+	let percentTypes = {
+		Spades: (typeCounter.Spades / score.total / 2) * 100,
+		Hearts: (typeCounter.Hearts / score.total / 2) * 100,
+		Diamonds: (typeCounter.Diamonds / score.total / 2) * 100,
+		Clubs: (typeCounter.Clubs / score.total / 2) * 100,
+	};
+	// window.alert("g");
+	console.log("aa");
+	alert(`Type | Count | Percentage
+Spades   | ${typeCounter.Spades} | ${percentTypes.Spades}
+Hearts   | ${typeCounter.Hearts} | ${percentTypes.Hearts}
+Diamonds | ${typeCounter.Diamonds} | ${percentTypes.Diamonds}
+Clubs    | ${typeCounter.Clubs} | ${percentTypes.Clubs}`);
 }
