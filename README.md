@@ -6,3 +6,4 @@ you can like look at the code by opening index.html or whatever
 
 ### yes
 
+https://dlol.github.io/A-Game-of-War/

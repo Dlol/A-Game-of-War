@@ -7,7 +7,7 @@ class Card {
 	 * @param {string} type The type of the card (Spades, Diamonds etc.)
 	 * @param {string} img The relative path to the image
 	 */
-	constructor(index, rank, type, img){
+	constructor(index, rank, type, img) {
 		this.indx = index;
 		this.cardRank = rank;
 		this.cardType = type;
@@ -60,8 +60,13 @@ function createCards() {
 	let cardTypes = ["Spades", "Hearts", "Diamonds", "Clubs"];
 	// Loops through and generates the cards using the example from cardDef
 	for (let index = 0; index < cardsToGen; index++) {
-		// Using a class constructor for ease of use 
-		let outCard = new Card(index, (index % amtOfCards) + 2, cardTypes[Math.floor(index / amtOfCards)],`Deck of Cards Images/${index}.jpg`);
+		// Using a class constructor for ease of use
+		let outCard = new Card(
+			index,
+			(index % amtOfCards) + 2,
+			cardTypes[Math.floor(index / amtOfCards)],
+			`Deck of Cards Images/${index}.jpg`,
+		);
 		cards.push(outCard);
 	}
 	// fancy formatting
@@ -160,7 +165,7 @@ function pacifist() {
 	score.total++;
 	// no need for checking if it's a tie or not!
 	score.tie++;
-	typeCounter[card.cardType]+=2;
+	typeCounter[card.cardType] += 2;
 	document.getElementById("pCard").src = card.img;
 	document.getElementById("cCard").src = card.img;
 	alert("You tied!");
@@ -191,3 +196,11 @@ Hearts   | ${typeCounter.Hearts} | ${percentTypes.Hearts}
 Diamonds | ${typeCounter.Diamonds} | ${percentTypes.Diamonds}
 Clubs    | ${typeCounter.Clubs} | ${percentTypes.Clubs}`);
 }
+
+/*
+Enhancements
+- CSS
+- Pacifist button
+- Cool Statistics :tm:
+- Classes
+*/
